@@ -11,12 +11,16 @@ const allTimesUrl = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
 class Table extends Component {
 
   generateList() {
-    console.log(this.props.users);
     return this.props.users.data.map(function(user, index){
       return (
         <tr key={user.username}>
           <td>{index+1}</td>
-          <td><img style={{height: 100}}src={user.img}/>{user.username}</td>
+          <td><img style={{height: 100}}src={user.img}/>
+          <a
+            href={`https://www.freecodecamp.com/${user.username}`}
+            target="_blank">
+            {user.username}</a>
+          </td>
           <td>{user.recent}</td>
           <td>{user.alltime}</td>
         </tr>
